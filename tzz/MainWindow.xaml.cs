@@ -107,8 +107,6 @@ namespace tzz
                         context.Products.Remove(product);
                         context.SaveChanges();
                         ProductList.ItemsSource = context.Products.ToList();
-
-
                     }
                 }
             }
