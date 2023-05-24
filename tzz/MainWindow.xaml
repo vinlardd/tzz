@@ -29,6 +29,7 @@
         </ListBox >
         </ScrollViewer>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            
             <Button Content="Добавить" x:Name="Add" Margin="10" Click="Add_Click" Width="125" />
             <Button Content="Редактировать" x:Name="Edit" Margin="10"  Click="Edit_Click" Width="125"  />
             <Button Content="Удалить" Margin="10" x:Name="Delete" Click="Delete_Click" Width="125"  />

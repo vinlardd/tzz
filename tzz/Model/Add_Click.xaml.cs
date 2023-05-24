@@ -67,10 +67,35 @@ namespace tzz.Model
             mainWindow.ShowDialog();
         }
 
-    }
+        private void CreateQR_btn_Click(object sender, RoutedEventArgs e)
+        {
+            QRCodeGenerator qrGenerator = new();
+            QRCodeData qRCodeData = qrGenerator.CreateQrCode(tb_id.Text, QRCodeGenerator.ECCLevel.Q);
 
+            QRCode qR = new QRCode(qRCodeData);
+
+            Bitmap qr = qR.GetGraphic(150);
+
+            image_qrcode.Source = Convert(qr);
+
+
+        }
+        public BitmapImage Convert(Bitmap src)
+        {
+            MemoryStream ms = new MemoryStream();
+            ((System.Drawing.Bitmap)src).Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+            BitmapImage image = new BitmapImage();
+            image.BeginInit();
+            ms.Seek(0, SeekOrigin.Begin);
+            image.StreamSource = ms;
+            image.EndInit();
+            return image;
+        }
+    }
+}
+   
 
        
-}
+
 
     

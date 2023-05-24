@@ -21,17 +21,35 @@
 
     <Grid>
 
+        <Border
+            Margin="10,270,640,14"
+            BorderBrush="Black" BorderThickness="1">
+            <Image 
+            x:Name="image_qrcode"
+                Stretch ="Uniform"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"/>
+        </Border>
+
         <TextBlock Text="Имя товара" Margin="10,10,614,365"  />
-        <TextBlock Text="Цена товара" Margin="10,84,614,290" />
-        <TextBlock Text="Описание" Margin="10,161,614,217" />
+        <TextBlock Text="Цена товара" Margin="10,88,614,290" />
+        <TextBlock Text="Описание" Margin="10,161,614,213" />
         <TextBlock Text="Уникальный идентификатор" Margin="10,240,614,138" />
 
 
         <TextBox Text="{Binding Name}" Margin="252,10,166,365" x:Name="tb_name" />
-        <TextBox Text="{Binding Price}" Margin="252,161,166,217" x:Name="tb_price" />
-        <TextBox Text="{Binding Description}" Margin="252,86,166,288" x:Name="tb_description" />
+        <TextBox Text="{Binding Price}" Margin="252,88,166,290" x:Name="tb_price" />
+        <TextBox Text="{Binding Description}" Margin="252,161,166,213" x:Name="tb_description" />
         <TextBox Text="{Binding ID}" Margin="252,240,166,134" Name="tb_id" />
-        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="205,361,0,10" Width="633">
+        
+        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="182,361,0,10" Width="633">
+
+            <Button
+               x:Name="tb_generate"
+            Click="CreateQR_btn_Click"   
+            Content="Сгенерировать QR CODE" 
+            Width="190" Height="40"/>
+
             <Button x:Name="Add" Click="Add_Click_1"  Content="Добавить"  Height="40" Margin="5" Width="190"/>
             <Button x:Name="Edit" Click="Edit_Click" Content="Отмена" Height="40" Margin="5" Width="190"/>
         </StackPanel>
