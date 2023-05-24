@@ -39,10 +39,7 @@ namespace tzz.Model
                 ID = Guid.NewGuid(),
                 Description = Products.Description
             };
-           
-
         }
-
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = false;

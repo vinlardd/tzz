@@ -16,15 +16,13 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <Image
-                            Height="100"
-                            Width="100"
-                            Source="{Binding QrCode}"/>
 
                         <TextBox Text="{Binding Name}" FontSize="16"   />
                         <TextBox Text="{Binding Price}" FontSize="13" />
                         <TextBox Text="{Binding Description}" FontSize="10"  />
                         <TextBox Text="{Binding ID}" FontSize="10"  />
+                        <TextBlock Text="QR-Code: "/>
+                        <Image Source="{Binding Path=QRCode}" Width="100" Height="100" HorizontalAlignment="Left" Margin="0, 10, 0, 0" />
                         </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

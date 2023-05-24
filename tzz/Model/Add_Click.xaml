@@ -31,11 +31,6 @@
         <TextBox Text="{Binding Price}" Margin="252,161,166,217" x:Name="tb_price" />
         <TextBox Text="{Binding Description}" Margin="252,86,166,288" x:Name="tb_description" />
         <TextBox Text="{Binding ID}" Margin="252,240,166,134" Name="tb_id" />
-
-
-
-
-
         <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="205,361,0,10" Width="633">
             <Button x:Name="Add" Click="Add_Click_1"  Content="Добавить"  Height="40" Margin="5" Width="190"/>
             <Button x:Name="Edit" Click="Edit_Click" Content="Отмена" Height="40" Margin="5" Width="190"/>

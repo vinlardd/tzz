@@ -40,7 +40,7 @@ namespace tzz
             Sqlite sqlite = new Sqlite();
             sqlite.Database.Migrate();
             List<Products> products = sqlite.Products.ToList();
-            ProductsList.ItemsSource = products;
+            ProductList.ItemsSource = products;
 
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
             foreach (Products product in products)
@@ -61,7 +61,7 @@ namespace tzz
 
                 ProductsList.Add(new Products { Name = product.Name, Price = product.Price, QRCode = qrCodeImage, Description = product.Description, ID = product.ID });
             }
-            ProductsList.ItemsSource = ProductsList;
+            ProductList.ItemsSource = ProductsList;
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
@@ -74,10 +74,10 @@ namespace tzz
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
-            if (ProductsList.SelectedItem != null)
+            if (ProductList.SelectedItem != null)
             {
 
-                var product = ProductsList.SelectedItem as Products;
+                var product = ProductList.SelectedItem as Products;
                 if (new Model.Edit_Click(product).ShowDialog() == true)
                 {
                     using (var context = new Sqlite())
@@ -85,7 +85,7 @@ namespace tzz
                         context.Entry(product).State = EntityState.Modified;
                         context.SaveChanges();
                     }
-                    ProductsList.Items.Refresh();
+                    ProductList.Items.Refresh();
                 }
             }
             MainWindow mainWindow = new MainWindow();
@@ -96,17 +96,17 @@ namespace tzz
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            if (ProductsList.SelectedItem != null)
+            if (ProductList.SelectedItem != null)
             {
                 MessageBoxResult messageBoxResult = MessageBox.Show("Вы уверены?", "Удалить", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (messageBoxResult == MessageBoxResult.Yes)
                 {
-                    var product = ProductsList.SelectedItem as Products;
+                    var product = ProductList.SelectedItem as Products;
                     using (var context = new Sqlite())
                     {
                         context.Products.Remove(product);
                         context.SaveChanges();
-                        ProductsList.ItemsSource = context.Products.ToList();
+                        ProductList.ItemsSource = context.Products.ToList();
 
 
                     }
